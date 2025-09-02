@@ -23,12 +23,16 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-  # ... lines ommite
+          
       - name: Build and push (tag=latest)
         uses: docker/build-push-action@v6
         with:
-            context: .
-            push: true
-            tags: ${{ env.IMAGE }}:latest
-            cache-from: type=gha
-            cache-to: type=gha,mode=max
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ env.IMAGE }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+
+            
