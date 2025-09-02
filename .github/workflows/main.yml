@@ -7,7 +7,7 @@ permissions:
   packages: write
 env:
   REGISTRY: ghcr.io
-  IMAGE: ghcr.io/Alexa404NL/tec-actions-test
+  IMAGE: ghcr.io/alexa404nl/tec-actions-test
  
 jobs:
   build:
