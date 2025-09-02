@@ -13,20 +13,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    # ... lines ommited
+    # revisa codigo del repo
       - name: Checkout code
         uses: actions/checkout@v4
-    
+     #  instala paquete con lo que se hace las imagenes 
       - name: Set up Buildx
         uses: docker/setup-buildx-action@v3
-      
+     # login a nube de github (esta preconfigurado en github)
       - name: Log in to GHCR with GITHUB_TOKEN
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          
+    # pushea codigo y guarda imagen 
       - name: Build and push (tag=latest)
         uses: docker/build-push-action@v6
         with:
